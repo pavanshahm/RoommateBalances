@@ -1,0 +1,12 @@
+C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\bin\Release\GroceryForm.exe.config
+C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\bin\Release\GroceryForm.exe
+C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\bin\Release\GroceryForm.pdb
+C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryForm.AddUserDlg.resources
+C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryForm.billItemForm.resources
+C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryForm.Form1.resources
+C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryForm.PayUser.resources
+C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryForm.Properties.Resources.resources
+C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryForm.csproj.GenerateResource.Cache
+C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryForm.exe
+C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryForm.pdb
+C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryForm.csprojResolveAssemblyReference.cache
