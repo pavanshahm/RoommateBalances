@@ -132,7 +132,7 @@
             // 
             this.OK.Location = new System.Drawing.Point(346, 348);
             this.OK.Name = "OK";
-            this.OK.Size = new System.Drawing.Size(75, 33);
+            this.OK.Size = new System.Drawing.Size(83, 44);
             this.OK.TabIndex = 10;
             this.OK.Text = "Bill";
             this.OK.UseVisualStyleBackColor = true;
@@ -140,9 +140,9 @@
             // 
             // Cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(443, 348);
+            this.Cancel.Location = new System.Drawing.Point(435, 348);
             this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(75, 33);
+            this.Cancel.Size = new System.Drawing.Size(83, 44);
             this.Cancel.TabIndex = 11;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = true;
@@ -152,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 412);
+            this.ClientSize = new System.Drawing.Size(608, 422);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.costModified);
