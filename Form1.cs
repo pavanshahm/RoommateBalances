@@ -35,16 +35,30 @@ namespace GroceryForm
         }
         private void occupy_prog(string val)
         {
-            System.IO.StreamWriter file = new System.IO.StreamWriter("bin\\occupied.dat");
-            file.WriteLine(val);
-            file.Close();
+            try
+            {
+                System.IO.StreamWriter file = new System.IO.StreamWriter("bin\\occupied.dat");
+                file.WriteLine(val);
+                file.Close();
+            }
+            catch
+            {
+                return;
+            }
         }
         private bool prog_occupied()
         {
-            System.IO.StreamReader fs = new System.IO.StreamReader("bin\\occupied.dat");
-            string val = fs.ReadLine();
-            fs.Close();
-            return val == "Yes";
+            try
+            {
+                System.IO.StreamReader fs = new System.IO.StreamReader("bin\\occupied.dat");
+                string val = fs.ReadLine();
+                fs.Close();
+                return val == "Yes";
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -167,6 +181,8 @@ namespace GroceryForm
                 paymentChart.Rows[Roomates.Count - 1].Cells[0].Value = newRoomate.getName();
                 paymentChart.Columns.Add(newRoomate.getName(),
                     "Owes " + newRoomate.getName());
+                paymentChart.AutoResizeColumns();
+                paymentChart.AutoResizeRows();
             }
 
             updateDataGrid();
