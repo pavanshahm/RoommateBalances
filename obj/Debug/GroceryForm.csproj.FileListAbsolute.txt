@@ -9,4 +9,3 @@ C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Debug\GroceryForm.
 C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Debug\GroceryForm.AddUserDlg.resources
 C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Debug\GroceryForm.PayUser.resources
 C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Debug\GroceryForm.billItemForm.resources
-C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Debug\GroceryForm.csprojResolveAssemblyReference.cache

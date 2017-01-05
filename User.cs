@@ -9,7 +9,7 @@ namespace GroceryForm
     class User
     {
         public string _name = "";
-        private Dictionary<string, decimal> balance = new Dictionary<string, decimal>();
+        public Dictionary<string, decimal> balance = new Dictionary<string, decimal>();
 
         public User(string name, List<string> roomates)
         {
@@ -24,6 +24,12 @@ namespace GroceryForm
         {
             _name = name;
             balance = roomates;
+        }
+
+        public User(User pUser)
+        {
+            _name = pUser._name;
+            balance = new Dictionary<string, decimal>(pUser.balance);
         }
 
         public void addRoomate(string name)

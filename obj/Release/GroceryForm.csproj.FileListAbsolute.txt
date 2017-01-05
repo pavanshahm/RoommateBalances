@@ -9,4 +9,3 @@ C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryFor
 C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryForm.csproj.GenerateResource.Cache
 C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryForm.exe
 C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryForm.pdb
-C:\Users\pavan_000\Documents\Hacking\Projects\GroceryForm\obj\Release\GroceryForm.csprojResolveAssemblyReference.cache

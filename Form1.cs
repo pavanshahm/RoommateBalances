@@ -1,12 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GroceryForm
@@ -15,6 +12,30 @@ namespace GroceryForm
     {
         Dictionary<String, User> Roomates = new Dictionary<String, User>();
         List<LogItem> Receipt = new List<LogItem>();
+
+
+        class cacheItem
+        {
+            public Dictionary<String, User> _roomateinfo;
+            public Dictionary<string, decimal> _prevBalance;
+            public List<LogItem> _receiptInfo;
+
+            public cacheItem(Dictionary<String, User> roomateinfo, List<LogItem> receiptInfo)
+            {
+                _roomateinfo = roomateinfo;
+                _receiptInfo = receiptInfo;
+                if(_roomateinfo.Count > 0)
+                {
+                    _prevBalance = new Dictionary<string, decimal>(roomateinfo.ElementAt(0).Value.balance);
+                }
+            }
+
+
+        };
+
+        Stack<cacheItem> undoCache = new Stack<cacheItem>();
+
+
         bool inside = false;
 
         public Form1()
@@ -164,6 +185,8 @@ namespace GroceryForm
             addUserDlgObj.ShowDialog();
             if (!addUserDlgObj.returnName().Equals(String.Empty))
             {
+                undoCache.Push(new cacheItem(new Dictionary<String, User>(Roomates), 
+                    new List<LogItem>(Receipt)));
                 List<String> roomateNames = getRoomateNames();
                 roomateNames.Add(addUserDlgObj.returnName());
 
@@ -199,6 +222,8 @@ namespace GroceryForm
 
             if (PayUserDlg.pay_pressed)
             {
+                undoCache.Push(new cacheItem(new Dictionary<String, User>(Roomates),
+                    new List<LogItem>(Receipt)));
                 changeBalance(PayUserDlg._payer, PayUserDlg._payee, PayUserDlg._amount);
             }
 
@@ -243,7 +268,9 @@ namespace GroceryForm
 
             if (billItemDlg.Bill_pressed)
             {
-                foreach(string roomate in billItemDlg.sharingMates())
+                undoCache.Push(new cacheItem(new Dictionary<String, User>(Roomates),
+                    new List<LogItem>(Receipt)));
+                foreach (string roomate in billItemDlg.sharingMates())
                 {
                     decimal sharedItemCost =
                         billItemDlg._cost / billItemDlg.sharingMates().Count;
@@ -300,6 +327,30 @@ namespace GroceryForm
             }
 
             file.Close();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            int NumRoomates = Roomates.Count;
+            cacheItem prevState = undoCache.Pop();
+            Roomates = prevState._roomateinfo;
+            Receipt = prevState._receiptInfo;
+
+            if (NumRoomates > Roomates.Count)
+            {
+                paymentChart.Rows.RemoveAt(NumRoomates - 1);
+                paymentChart.Columns.RemoveAt(NumRoomates - 1);
+            }
+
+            if(Roomates.Count > 0)
+            {
+                foreach( KeyValuePair<String, User> person in Roomates)
+                {
+                    person.Value.balance = prevState._prevBalance;
+                }
+            }
+
+            updateDataGrid();
         }
     }
 }

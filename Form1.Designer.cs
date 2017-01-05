@@ -37,6 +37,7 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.paymentChart = new System.Windows.Forms.DataGridView();
             this.Names = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paymentChart)).BeginInit();
             this.SuspendLayout();
@@ -49,10 +50,11 @@
             this.AddUserButton,
             this.toolStripButton1,
             this.toolStripButton2,
-            this.toolStripButton3});
+            this.toolStripButton3,
+            this.toolStripButton4});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1121, 32);
+            this.toolStrip2.Size = new System.Drawing.Size(1311, 32);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -109,7 +111,7 @@
             this.paymentChart.Location = new System.Drawing.Point(12, 52);
             this.paymentChart.Name = "paymentChart";
             this.paymentChart.RowTemplate.Height = 28;
-            this.paymentChart.Size = new System.Drawing.Size(969, 286);
+            this.paymentChart.Size = new System.Drawing.Size(1287, 491);
             this.paymentChart.TabIndex = 1;
             // 
             // Names
@@ -118,11 +120,21 @@
             this.Names.Name = "Names";
             this.Names.ReadOnly = true;
             // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(60, 29);
+            this.toolStripButton4.Text = "Undo";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1121, 528);
+            this.ClientSize = new System.Drawing.Size(1311, 609);
             this.Controls.Add(this.paymentChart);
             this.Controls.Add(this.toolStrip2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -149,6 +161,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
     }
 }
 
