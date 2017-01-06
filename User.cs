@@ -8,11 +8,12 @@ namespace GroceryForm
 {
     class User
     {
-        public string _name = "";
-        public Dictionary<string, decimal> balance = new Dictionary<string, decimal>();
+        public string _name;
+        public Dictionary<string, decimal> balance;
 
         public User(string name, List<string> roomates)
         {
+            balance = new Dictionary<string, decimal>();
             _name = name;
             foreach(string roomate in roomates)
             {
@@ -23,7 +24,7 @@ namespace GroceryForm
         public User(string name, Dictionary<string, decimal> roomates)
         {
             _name = name;
-            balance = roomates;
+            balance = new Dictionary<string, decimal>(roomates);
         }
 
         public User(User pUser)
@@ -65,7 +66,8 @@ namespace GroceryForm
 
         public Dictionary<string, decimal> returnBalance()
         {
-            return balance;
+            return new Dictionary<string, decimal>(balance);
         }
+
     }
 }

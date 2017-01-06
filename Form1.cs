@@ -16,21 +16,17 @@ namespace GroceryForm
 
         class cacheItem
         {
-            public Dictionary<String, User> _roomateinfo;
-            public Dictionary<string, decimal> _prevBalance;
+            public Dictionary<String, User> _roomateinfo = new Dictionary<String, User>();
             public List<LogItem> _receiptInfo;
 
             public cacheItem(Dictionary<String, User> roomateinfo, List<LogItem> receiptInfo)
             {
-                _roomateinfo = roomateinfo;
-                _receiptInfo = receiptInfo;
-                if(_roomateinfo.Count > 0)
+                foreach(KeyValuePair<String, User> roomate in roomateinfo)
                 {
-                    _prevBalance = new Dictionary<string, decimal>(roomateinfo.ElementAt(0).Value.balance);
+                    _roomateinfo.Add(roomate.Key, new User(roomate.Key, roomate.Value.returnBalance()));
                 }
+                _receiptInfo = receiptInfo;
             }
-
-
         };
 
         Stack<cacheItem> undoCache = new Stack<cacheItem>();
@@ -331,6 +327,11 @@ namespace GroceryForm
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
+            if(undoCache.Count == 0)
+            {
+                return;
+            }
+
             int NumRoomates = Roomates.Count;
             cacheItem prevState = undoCache.Pop();
             Roomates = prevState._roomateinfo;
@@ -339,15 +340,9 @@ namespace GroceryForm
             if (NumRoomates > Roomates.Count)
             {
                 paymentChart.Rows.RemoveAt(NumRoomates - 1);
-                paymentChart.Columns.RemoveAt(NumRoomates - 1);
-            }
-
-            if(Roomates.Count > 0)
-            {
-                foreach( KeyValuePair<String, User> person in Roomates)
-                {
-                    person.Value.balance = prevState._prevBalance;
-                }
+                paymentChart.Columns.RemoveAt(NumRoomates);
+                paymentChart.AutoResizeColumns();
+                paymentChart.AutoResizeRows();
             }
 
             updateDataGrid();
